@@ -13,6 +13,8 @@ async function iniciarJogo() {
     let letrasDescobertas = Array(palavraSecreta.length).fill("_");
     let jogoRodando = true;
 
+    let vidas = 6; 
+
     console.log ("=== Bem-vindo ao jogo da Forca ===");
 
     while(jogoRodando) {
@@ -28,13 +30,20 @@ async function iniciarJogo() {
             }
         } 
         
-        if(!acertou){
+        if(!acertou) {
             console.log("[X] Letra incorreta!");
+            vidas--;
+
         }
 
         if(!letrasDescobertas.includes("_")) {
             console.log(`\n[VITORIA] Parabens! Você descobriu a palavra: ${palavraSecreta}`);
             jogoRodando = false;
+        }
+
+        if(vidas === 0) {
+            console.log(`\n[FIM DE JOGO] A palavra correta era: ${palavraSecreta}`);
+            jogoRodando = false
         }
     }
 
