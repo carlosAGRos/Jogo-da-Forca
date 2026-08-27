@@ -48,3 +48,7 @@ node index.js
 5. O jogo termina quando a palavra é totalmente descoberta (vitória) ou quando as vidas se esgotam (derrota).
 
 ## 📁 Estrutura do projeto
+
+jogo-da-forca/
+├── nome-do-arquivo.js   # Arquivo principal com a lógica do jogo
+└── README.md            # Documentação do projeto
