@@ -15,10 +15,10 @@ async function iniciarJogo() {
 
     let vidas = 6; 
 
-    console.log ("=== Bem-vindo ao jogo da Forca ===");
-
-    while(jogoRodando) {
-       console.log(`\nPalavra atual: ${letrasDescobertas.join(" ")}`); 
+    while(jogoRodando) { 
+        console.log ("=== Bem-vindo ao jogo da Forca ===");
+        console.log(`\nVidas restantes: <3 ${vidas}`);
+        console.log(`\nPalavra atual: ${letrasDescobertas.join(" ")}`); 
 
         const chute = (await rl.question("Digite uma letra: ")).toUpperCase();
         let acertou = false;
@@ -36,8 +36,10 @@ async function iniciarJogo() {
 
         }
 
-        if(!letrasDescobertas.includes("_")) {
-            console.log(`\n[VITORIA] Parabens! Você descobriu a palavra: ${palavraSecreta}`);
+        if(!letrasDescobertas.includes("_")) { 
+            let pontuacaoFinal = (vidas * 10) + 50;
+            console.log(`\n[VITORIA] Parabéns! Você descobriu a palavra: ${palavraSecreta}`);
+            console.log(`\n[PONTUAÇÃO] Sua pontuação final foi: ${pontuacaoFinal} pontos`);
             jogoRodando = false;
         }
 
