@@ -21,24 +21,11 @@ async function iniciarJogo() {
     let jogoRodando = true;
 
     let vidas = 6; 
-    const arteForca =[
-        " +---+\n | |\n O |\n /|\\ |\n / \\ |\n ", // 0 vidas
-        " +---+\n | |\n O |\n /|\\ |\n /  |\n ", // 1 vida
-        " +---+\n | |\n O |\n /|\\ |\n   |\n ", // 2 vidas
-        " +---+\n | |\n O |\n /| |\n   |\n ", // 3 vidas
-        " +---+\n | |\n O |\n | |\n   |\n ", // 4 vidas
-        " +---+\n | |\n O |\n  |\n   |\n ", // 5 vidas
-        " +---+\n | |\n  |\n  |\n   |\n "  // 6 vidas
-    ]
-    console.log ("=== Bem-vindo ao jogo da Forca ===");
-    
 
-    while(jogoRodando) {
-        
-        console.log(`\nVidas Restantes: <3 ${vidas}`);
-        console.log(arteForca[vidas]);
-
-       console.log(`\nPalavra atual: ${letrasDescobertas.join(" ")}`); 
+    while(jogoRodando) { 
+        console.log ("=== Bem-vindo ao jogo da Forca ===");
+        console.log(`\nVidas restantes: <3 ${vidas}`);
+        console.log(`\nPalavra atual: ${letrasDescobertas.join(" ")}`); 
 
         const chute = (await rl.question("Digite uma le tra: ")).toUpperCase();
         let acertou = false;
@@ -56,8 +43,10 @@ async function iniciarJogo() {
 
         }
 
-        if(!letrasDescobertas.includes("_")) {
-            console.log(`\n[VITORIA] Parabens! Você descobriu a palavra: ${palavraSecreta}`);
+        if(!letrasDescobertas.includes("_")) { 
+            let pontuacaoFinal = (vidas * 10) + 50;
+            console.log(`\n[VITORIA] Parabéns! Você descobriu a palavra: ${palavraSecreta}`);
+            console.log(`\n[PONTUAÇÃO] Sua pontuação final foi: ${pontuacaoFinal} pontos`);
             jogoRodando = false;
         }
 
